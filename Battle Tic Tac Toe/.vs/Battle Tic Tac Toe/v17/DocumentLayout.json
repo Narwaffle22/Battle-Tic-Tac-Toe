@@ -1,0 +1,53 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\D242U17\\Documents\\GitHub\\Battle-Tic-Tac-Toe\\Battle Tic Tac Toe\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{07A35138-274D-43C4-9F80-223511205F8F}|Battle Tic Tac Toe\\Battle Tic Tac Toe.vcxproj|C:\\Users\\D242U17\\Documents\\GitHub\\Battle-Tic-Tac-Toe\\Battle Tic Tac Toe\\Battle Tic Tac Toe\\Battle Tic Tac Toe.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{07A35138-274D-43C4-9F80-223511205F8F}|Battle Tic Tac Toe\\Battle Tic Tac Toe.vcxproj|solutionrelative:Battle Tic Tac Toe\\Battle Tic Tac Toe.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.40.33807\\crt\\src\\vcruntime\\new_scalar.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "new_scalar.cpp",
+              "DocumentMoniker": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.40.33807\\crt\\src\\vcruntime\\new_scalar.cpp",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\..\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.40.33807\\crt\\src\\vcruntime\\new_scalar.cpp",
+              "ToolTip": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.40.33807\\crt\\src\\vcruntime\\new_scalar.cpp",
+              "RelativeToolTip": "..\\..\\..\\..\\..\\..\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.40.33807\\crt\\src\\vcruntime\\new_scalar.cpp",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAqwCMAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-10-22T21:21:33.08Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Battle Tic Tac Toe.cpp",
+              "DocumentMoniker": "C:\\Users\\D242U17\\Documents\\GitHub\\Battle-Tic-Tac-Toe\\Battle Tic Tac Toe\\Battle Tic Tac Toe\\Battle Tic Tac Toe.cpp",
+              "RelativeDocumentMoniker": "Battle Tic Tac Toe\\Battle Tic Tac Toe.cpp",
+              "ToolTip": "C:\\Users\\D242U17\\Documents\\GitHub\\Battle-Tic-Tac-Toe\\Battle Tic Tac Toe\\Battle Tic Tac Toe\\Battle Tic Tac Toe.cpp",
+              "RelativeToolTip": "Battle Tic Tac Toe\\Battle Tic Tac Toe.cpp",
+              "ViewState": "AQIAAGMAAAAAAAAAAAAAAGgAAAA+AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-10-22T21:04:53.544Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
