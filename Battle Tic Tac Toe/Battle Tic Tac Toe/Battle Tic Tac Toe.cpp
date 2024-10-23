@@ -15,6 +15,7 @@ public:
     bool isDone();
 private:
     string mockBoard[9] = { "1","2","3","4","5","6","7","8","9" };
+    int mockTurnCounter = 0;
     int winningCombos[9][3];
     bool checkCorrectCharacter(string);
     bool isInRange(int);
@@ -24,37 +25,37 @@ private:
 };
 
 Rules::Rules(){
-    winningCombos[0][0] = 1;
-    winningCombos[0][1] = 2;
-    winningCombos[0][2] = 3;
+    winningCombos[0][0] = 0;
+    winningCombos[0][1] = 1;
+    winningCombos[0][2] = 2;
 
-    winningCombos[1][0] = 4;
-    winningCombos[1][1] = 5;
-    winningCombos[1][2] = 6;
+    winningCombos[1][0] = 3;
+    winningCombos[1][1] = 4;
+    winningCombos[1][2] = 5;
 
-    winningCombos[2][0] = 7;
-    winningCombos[2][1] = 8;
-    winningCombos[2][2] = 9;
+    winningCombos[2][0] = 6;
+    winningCombos[2][1] = 7;
+    winningCombos[2][2] = 8;
 
-    winningCombos[3][0] = 1;
-    winningCombos[3][1] = 4;
-    winningCombos[3][2] = 7;
+    winningCombos[3][0] = 0;
+    winningCombos[3][1] = 3;
+    winningCombos[3][2] = 6;
 
-    winningCombos[4][0] = 2;
-    winningCombos[4][1] = 5;
-    winningCombos[4][2] = 8;
+    winningCombos[4][0] = 1;
+    winningCombos[4][1] = 4;
+    winningCombos[4][2] = 7;
 
-    winningCombos[5][0] = 3;
-    winningCombos[5][1] = 6;
-    winningCombos[5][2] = 9;
+    winningCombos[5][0] = 2;
+    winningCombos[5][1] = 5;
+    winningCombos[5][2] = 8;
 
-    winningCombos[6][0] = 1;
-    winningCombos[6][1] = 5;
-    winningCombos[6][2] = 9;
+    winningCombos[6][0] = 0;
+    winningCombos[6][1] = 4;
+    winningCombos[6][2] = 8;
 
-    winningCombos[7][0] = 3;
-    winningCombos[7][1] = 5;
-    winningCombos[7][2] = 7;
+    winningCombos[7][0] = 2;
+    winningCombos[7][1] = 4;
+    winningCombos[7][2] = 6;
 }
 bool Rules::verifyInput(string space, string token) {
     bool correctToken = true;
@@ -102,8 +103,12 @@ bool Rules::isInteger(const string& str) {
     return true;
 }
 bool Rules::isAvailble(int space) {
-    if (mockBoard[space - 1] != "taken" && isInRange(space)) {
-        mockBoard[space - 1] = "taken";
+    if ((mockBoard[space - 1] != "X" && mockBoard[space - 1] != "O") && isInRange(space)) {
+        if (mockTurnCounter % 2 == 0)
+            mockBoard[space - 1] = "X";
+        else
+            mockBoard[space - 1] = "O";
+        mockTurnCounter++;
         return true;
     }
     else {
@@ -162,7 +167,7 @@ void Board::markBoard(int slot, string token) {
     formatBoard();
 }
 string Board::checkTile(int slot) {
-    return "";
+    return slots[slot];
 }
 void Board::formatBoard() {
     currentBoard = edgeMarker + slots[0] + verticalDivider + slots[1] + verticalDivider + slots[2] + edgeMarker;
