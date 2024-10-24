@@ -6,7 +6,6 @@
 using namespace std;
 
 #pragma region Rules Class
-
 class Rules
 {
 public:
@@ -22,6 +21,7 @@ private:
     bool isInteger(const string&);
     bool isAvailble(int);
     bool threeInARow(int, int, int);
+    string XorO;
 };
 
 Rules::Rules(){
@@ -103,30 +103,33 @@ bool Rules::isInteger(const string& str) {
     return true;
 }
 bool Rules::isAvailble(int space) {
+    if (mockTurnCounter % 2 == 0)
+        XorO = "X";
+    else
+        XorO = "O";
     if ((mockBoard[space - 1] != "X" && mockBoard[space - 1] != "O") && isInRange(space)) {
-        if (mockTurnCounter % 2 == 0)
-            mockBoard[space - 1] = "X";
-        else
-            mockBoard[space - 1] = "O";
+        mockBoard[space - 1] = XorO;
         mockTurnCounter++;
         return true;
-    }
-    else {
+    } else {
         return false;
     }
 }
 bool Rules::isDone() {
     for (int i = 0; i < 8; i++) {
-        if (this->threeInARow(winningCombos[i][0], winningCombos[i][1], winningCombos[i][2]))
+        if (this->threeInARow(winningCombos[i][0], winningCombos[i][1], winningCombos[i][2])) {
+            cout << "Game is over, " << XorO << " wins\n";
             return true;
+        }
     }
 
-    for (int i = 0; i < 8; i++) {
+    for (int i = 0; i <= 8; i++) {
         if (isInteger(mockBoard[i]))
             return false;
     }
 
-    return false;
+    cout << "Game is over, it's a tie, womp womp\n";
+    return true;
 }
 bool Rules::threeInARow(int indexOne, int indexTwo, int indexThree) {
     return mockBoard[indexOne] == mockBoard[indexTwo] && mockBoard[indexTwo] == mockBoard[indexThree];
@@ -135,7 +138,6 @@ bool Rules::threeInARow(int indexOne, int indexTwo, int indexThree) {
 #pragma endregion
 
 #pragma region Board Class
-
 class Board {
 public:
     Board();
@@ -183,7 +185,6 @@ void Board::printBoard() {
 #pragma endregion
 
 #pragma region Game Loop
-
 class Game
 {
 public:
@@ -193,8 +194,7 @@ private:
     int playerPlay(Rules*);
 };
 
-Game::Game()
-{
+Game::Game() {
 }
 void Game::start() {
     Board* board = new Board();
@@ -255,11 +255,127 @@ int Game::playerPlay(Rules* rules) {
 
 #pragma endregion
 
+#pragma region Menu Class
+
+class MainMenu {
+public:
+    MainMenu();
+    void startTheProgram();
+private:
+    string welcomeMessages[1] = { "welcome back to the menu" };
+    void playTicTacToe();
+    void playBatTicTacToe();
+    void compendium();
+    void statsScreen();
+};
+MainMenu::MainMenu() {
+}
+void MainMenu::startTheProgram() {
+    int command;
+    int randWelcome = 0;
+    bool inProgress = true;
+
+    cout << "+--------------------------------------+" << "\n";
+    cout << "+    Welcome to Battle Tic-Tac-Toe     +" << "\n";
+    cout << "+--------------------------------------+" << "\n\n";
+
+    cout << "\n\n!Follow The Instructions to Navigate!\n" << endl;
+
+    cout << "[1] Original Tic-Tac-Toe" << endl;
+    cout << "[2] Battle Tic-Tac-Toe" << endl;
+    cout << "[3] Archetypes Compendium (WIP)" << endl;
+    cout << "[4] Show Stats from this Session (WIP)" << endl;
+    cout << "[0] Exit" << endl;
+
+    cout << "SELECT Command: ";
+    cin >> command;
+
+    while (inProgress) {
+        switch (command) {
+        case 0: {
+            inProgress = false;
+            cout << "Hope you play again soon! see ya!";
+            break;
+        }
+        case 1: {
+            playTicTacToe();
+            cout << "\n\nWhat a nice bit of nostalgia, " << welcomeMessages[randWelcome] << "\n" << endl;
+
+            cout << "[1] Original Tic-Tac-Toe" << endl;
+            cout << "[2] Battle Tic-Tac-Toe" << endl;
+            cout << "[3] Archetypes Compendium (WIP)" << endl;
+            cout << "[4] Show Stats from this Session (WIP)" << endl;
+            cout << "[0] Exit" << endl;
+
+            cout << "SELECT Command: ";
+            cin >> command;
+            break;
+        }
+        case 2: {
+            playBatTicTacToe();
+            cout << "\n\nI hope that was fun, " << welcomeMessages[randWelcome] << "\n" << endl;
+
+            cout << "[1] Original Tic-Tac-Toe" << endl;
+            cout << "[2] Battle Tic-Tac-Toe" << endl;
+            cout << "[3] Archetypes Compendium (WIP)" << endl;
+            cout << "[4] Show Stats from this Session (WIP)" << endl;
+            cout << "[0] Exit" << endl;
+
+            cout << "SELECT Command: ";
+            cin >> command;
+            break;
+        }
+        case 3: {
+            compendium();
+            cout << "\n\nHow very informative, " << welcomeMessages[randWelcome] << "\n" << endl;
+
+            cout << "[1] Original Tic-Tac-Toe" << endl;
+            cout << "[2] Battle Tic-Tac-Toe" << endl;
+            cout << "[3] Archetypes Compendium (WIP)" << endl;
+            cout << "[4] Show Stats from this Session (WIP)" << endl;
+            cout << "[0] Exit" << endl;
+
+            cout << "SELECT Command: ";
+            cin >> command;
+            break;
+        }
+        case 4: {
+            statsScreen();
+            cout << "\n\nNow those were some good stats, " << welcomeMessages[randWelcome] << "\n" << endl;
+
+            cout << "[1] Original Tic-Tac-Toe" << endl;
+            cout << "[2] Battle Tic-Tac-Toe" << endl;
+            cout << "[3] Archetypes Compendium (WIP)" << endl;
+            cout << "[4] Show Stats from this Session (WIP)" << endl;
+            cout << "[0] Exit" << endl;
+
+            cout << "SELECT Command: ";
+            cin >> command;
+            break;
+        }
+        }
+    }
+}
+void MainMenu::playTicTacToe() {
+
+}
+void MainMenu::playBatTicTacToe() {
+
+}
+void MainMenu::compendium() {
+    cout << "\n\n\nOh, I have so many ideas for this one, just you wait\n\n\n";
+}
+void MainMenu::statsScreen() {
+    cout << "\n\n\nOh, I have so many ideas for this one, just you wait\n\n\n";
+}
+
+
+#pragma endregion
 // main 
 int main()
 {
-    Game* game = new Game();
+    MainMenu *menu = new MainMenu();
 
-    game->start();
+    menu->startTheProgram();
 
 }
